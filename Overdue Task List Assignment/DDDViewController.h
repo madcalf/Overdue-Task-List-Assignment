@@ -8,6 +8,10 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DDDViewController : UIViewController
+@interface DDDViewController : UIViewController <UITableViewDataSource, UITableViewDelegate, DDDAddTaskViewControllerDelegate>
 
+@property (strong, nonatomic) NSMutableArray *tasks;
+@property (strong, nonatomic) IBOutlet UITableView *tableView;
+
+- (IBAction)addTaskButtonPressed:(UIBarButtonItem *)sender;
 @end

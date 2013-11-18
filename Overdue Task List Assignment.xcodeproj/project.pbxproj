@@ -21,6 +21,10 @@
 		6FE7311E18319837006026C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE7310018319837006026C5 /* UIKit.framework */; };
 		6FE7312618319837006026C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FE7312418319837006026C5 /* InfoPlist.strings */; };
 		6FE7312818319837006026C5 /* Overdue_Task_List_AssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7312718319837006026C5 /* Overdue_Task_List_AssignmentTests.m */; };
+		6FE731331831A4BB006026C5 /* DDDTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */; };
+		6FE731391831A4FA006026C5 /* DDDEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */; };
+		6FE7313C1831D911006026C5 /* DDDTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7313B1831D911006026C5 /* DDDTask.m */; };
+		6FE7314218328545006026C5 /* DDDAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7314118328545006026C5 /* DDDAddTaskViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -53,6 +57,14 @@
 		6FE7312318319837006026C5 /* Overdue Task List AssignmentTests-Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = "Overdue Task List AssignmentTests-Info.plist"; sourceTree = "<group>"; };
 		6FE7312518319837006026C5 /* en */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = en; path = en.lproj/InfoPlist.strings; sourceTree = "<group>"; };
 		6FE7312718319837006026C5 /* Overdue_Task_List_AssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Overdue_Task_List_AssignmentTests.m; sourceTree = "<group>"; };
+		6FE731311831A4BB006026C5 /* DDDTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDTaskDetailViewController.h; sourceTree = "<group>"; };
+		6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDTaskDetailViewController.m; sourceTree = "<group>"; };
+		6FE731371831A4FA006026C5 /* DDDEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDEditTaskViewController.h; sourceTree = "<group>"; };
+		6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDEditTaskViewController.m; sourceTree = "<group>"; };
+		6FE7313A1831D911006026C5 /* DDDTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDTask.h; sourceTree = "<group>"; };
+		6FE7313B1831D911006026C5 /* DDDTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDTask.m; sourceTree = "<group>"; };
+		6FE7314018328545006026C5 /* DDDAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDAddTaskViewController.h; sourceTree = "<group>"; };
+		6FE7314118328545006026C5 /* DDDAddTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDAddTaskViewController.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +129,13 @@
 				6FE7310E18319837006026C5 /* Main.storyboard */,
 				6FE7311118319837006026C5 /* DDDViewController.h */,
 				6FE7311218319837006026C5 /* DDDViewController.m */,
+				6FE7314018328545006026C5 /* DDDAddTaskViewController.h */,
+				6FE7314118328545006026C5 /* DDDAddTaskViewController.m */,
+				6FE731311831A4BB006026C5 /* DDDTaskDetailViewController.h */,
+				6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */,
+				6FE731371831A4FA006026C5 /* DDDEditTaskViewController.h */,
+				6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */,
+				6FE7313D1831D91B006026C5 /* Model */,
 				6FE7311418319837006026C5 /* Images.xcassets */,
 				6FE7310318319837006026C5 /* Supporting Files */,
 			);
@@ -150,6 +169,15 @@
 				6FE7312418319837006026C5 /* InfoPlist.strings */,
 			);
 			name = "Supporting Files";
+			sourceTree = "<group>";
+		};
+		6FE7313D1831D91B006026C5 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				6FE7313A1831D911006026C5 /* DDDTask.h */,
+				6FE7313B1831D911006026C5 /* DDDTask.m */,
+			);
+			name = Model;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -251,8 +279,12 @@
 			buildActionMask = 2147483647;
 			files = (
 				6FE7310918319837006026C5 /* main.m in Sources */,
+				6FE731331831A4BB006026C5 /* DDDTaskDetailViewController.m in Sources */,
 				6FE7311318319837006026C5 /* DDDViewController.m in Sources */,
+				6FE7313C1831D911006026C5 /* DDDTask.m in Sources */,
 				6FE7310D18319837006026C5 /* DDDAppDelegate.m in Sources */,
+				6FE7314218328545006026C5 /* DDDAddTaskViewController.m in Sources */,
+				6FE731391831A4FA006026C5 /* DDDEditTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
