@@ -7,12 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+//#import "DDDTask.h"
 
 @protocol DDDAddTaskViewControllerDelegate <NSObject>
 
 @required
 -(void)didCancel;
--(void)didAddTask;
+-(void)didAddTask:(DDDTask *)aTask;
 
 @end
 

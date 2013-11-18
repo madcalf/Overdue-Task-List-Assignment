@@ -13,6 +13,7 @@
 @property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextField;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) DDDTask * task;
 
 - (IBAction)editBarButtonItemPressed:(UIBarButtonItem *)sender;
 @end
