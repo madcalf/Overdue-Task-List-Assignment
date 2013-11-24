@@ -44,9 +44,6 @@
                                                 </label>
                                             </subviews>
                                         </tableViewCellContentView>
-                                        <connections>
-                                            <segue destination="wRU-UF-DMk" kind="push" identifier="segueToTaskDetailVC" id="oD2-Vi-Whp"/>
-                                        </connections>
                                     </tableViewCell>
                                 </prototypes>
                             </tableView>
@@ -63,11 +60,12 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="VZx-xk-f6J" id="dX2-cR-h7Y"/>
+                        <segue destination="wRU-UF-DMk" kind="push" identifier="segueToDetailVC" id="yPa-hI-cXh"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="x5A-6p-PRh" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="732" y="-55"/>
+            <point key="canvasLocation" x="726" y="-37"/>
         </scene>
         <!--Add Task View Controller-->
         <scene sceneID="Ovn-el-5d2">
@@ -264,7 +262,7 @@ AQABAAEAAQAB//+dkAEA//+PgAAE//+dkAEI//+dkAEMUERUAFBTVABQV1QAUFBUAAAAAAEAAAABA
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Fzd-0H-1VK" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1176" y="215"/>
+            <point key="canvasLocation" x="1190" y="239"/>
         </scene>
         <!--Edit Task View Controller - Edit Task-->
         <scene sceneID="0xM-mG-XWu">

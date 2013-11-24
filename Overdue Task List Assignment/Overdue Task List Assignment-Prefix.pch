@@ -24,3 +24,4 @@
 #define TASK_NAME @"taskName"
 #define TASK_DETAIL @"detail"
 #define TASK_DUE_DATE @"dueDate"
+#define TASK_COMPLETED @"completed"

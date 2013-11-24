@@ -18,10 +18,13 @@
 @property (strong, nonatomic) NSString *taskName;
 @property (strong, nonatomic) NSString *detail;
 @property (strong, nonatomic) NSDate *dueDate;
-@property (nonatomic) BOOL isCompleted;
+@property (nonatomic) BOOL completed;
 
-// should this return DDTask or id? SpaceObject class returned id.
 -(id) initWithTaskName:(NSString *)aTaskName detail:(NSString *)aDetail dueDate:(NSDate *)aDate;
 
 -(id) initWithID:(NSNumber *)aID taskName:(NSString *)aName detail:(NSString *)aDetail dueDate:(NSDate *)aDate;
+
+-(id) initWithData(NSDictionary *)aData;
+
+-(BOOL) isOverdue;
 @end

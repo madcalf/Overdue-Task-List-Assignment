@@ -53,7 +53,7 @@
 #pragma mark - UITableViewDataSource
 
 -(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    NSLog(@"--[DDDVC numberOfRowsInSection] rows: %i", [self.tasks count] );
+    NSLog(@"--[VC numberOfRowsInSection] rows: %i", [self.tasks count] );
     return [self.tasks count];
 }
 
@@ -75,7 +75,20 @@
 #pragma mark - UITableViewDelegate
 
 -(void)tableView:(UITableView *)tableView accessoryButtonTappedForRowWithIndexPath:(NSIndexPath *)indexPath {
+    // perform segue to detail vieiw
     
+}
+
+-(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    NSLog(@"--[VC didSelectRowAtIndexPath]  Row %i", indexPath.row );
+    DDDTask *task = self.tasks[indexPath.row];
+    task.completed = YES;
+    [self.tableView reloadData];
+}
+
+-(BOOL)tableView:(UITableView *)tableView shouldHighlightRowAtIndexPath:(NSIndexPath *)indexPath {
+    // just testing this. Needs to return YES if you want to even get the didSelect... message. If you return no, the didSelectRowAtIndexPath message doesn't seem to get sent. Weird... 
+    return YES;
 }
 
 #pragma mark - DDDAddTaskViewControllerDelegate
@@ -85,7 +98,7 @@
 }
 
 -(void)didAddTask:(DDDTask *)aTask {
-    NSLog(@"--[DDDVC didAddTask]");
+    NSLog(@"--[VC didAddTask]");
     [self.tasks addObject:aTask];
     [self saveTask:aTask];
     [self dismissViewControllerAnimated:YES completion:nil];
@@ -127,7 +140,10 @@
 
 -(NSDictionary *)taskAsDictionary:(DDDTask *)aTask {
     //    NSMutableDictionary *dict = [[NSMutableDictionary alloc] init];
-    return @{TASK_ID:aTask.taskID, TASK_NAME:aTask.taskName, TASK_DETAIL:aTask.detail, TASK_DUE_DATE: aTask.dueDate};
+    // NEED TO ADD OUR COMPLETE STATE TOO. NEED TO CONVERT FROM BOOL TO ??
+    // since completed is a bool, need to set it to defaults explicitly, since bool is not propertly list compatible??
+
+    return @{TASK_ID:aTask.taskID, TASK_NAME:aTask.taskName, TASK_DETAIL:aTask.detail, TASK_DUE_DATE: aTask.dueDate, TASK_COMPLETED:[NSNumber numberWithBool:aTask.completed]};
 }
 
 -(void)loadSavedData {
@@ -137,13 +153,13 @@
     // create DDDTask objects from loaded dictionaries
     self.tasks = [[NSMutableArray alloc]init];
     for (NSDictionary *dict in storedTasks) {
-//        NSLog(@"Stored task dictionary: %@", dict);
+        //        NSLog(@"Stored task dictionary: %@", dict);
         [self.tasks addObject:[self taskFromDictionary:dict] ];
     }
-//    NSLog(@"--[DDDVC viewDidLoad]  tasks: %@", self.tasks );
 }
 
 -(DDDTask *)taskFromDictionary:(NSDictionary *)aDict {
+    // CHANGE THE Task initializer to accept dictionary instead of individual args
     DDDTask *task = [[DDDTask alloc] initWithID:aDict[TASK_ID] taskName:aDict[TASK_NAME] detail:aDict[TASK_DETAIL] dueDate:aDict[TASK_DUE_DATE]];
     return task;
 }
@@ -157,5 +173,13 @@
     // create a formatted string of our date text using this formatter
     NSString *dateString = [formatter stringFromDate:aTask.dueDate];
     aCell.detailTextLabel.text = dateString;
+    // color the background based on task properties
+    if ([aTask isOverdue]) {
+        aCell.backgroundColor = [UIColor redColor];
+    } else if (aTask.completed) {
+        aCell.backgroundColor = [UIColor greenColor];
+    } else {
+        aCell.backgroundColor = [UIColor yellowColor];
+    }
 }
 @end

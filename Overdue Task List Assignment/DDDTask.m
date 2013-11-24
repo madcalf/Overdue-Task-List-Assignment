@@ -36,9 +36,15 @@
         _dueDate = aDate;
         
         // not sure why an instance var for the BOOL doesn't autofill here as the others do...
-        self.isCompleted = NO;        
+        self.completed = NO;
     }
     return self;
+}
+
+
+-(BOOL)isOverdue {
+    // compare due date to today's date and return true if this was due in the past
+    return NO;
 }
 
 -(NSString *)description {
