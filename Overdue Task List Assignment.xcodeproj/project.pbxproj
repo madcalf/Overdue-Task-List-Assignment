@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6FD5DC9D1845B8CC0003058B /* DDDEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FD5DC9C1845B8CC0003058B /* DDDEditTaskViewController.m */; };
 		6FE730FD18319837006026C5 /* Foundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE730FC18319837006026C5 /* Foundation.framework */; };
 		6FE730FF18319837006026C5 /* CoreGraphics.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE730FE18319837006026C5 /* CoreGraphics.framework */; };
 		6FE7310118319837006026C5 /* UIKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6FE7310018319837006026C5 /* UIKit.framework */; };
@@ -22,7 +23,6 @@
 		6FE7312618319837006026C5 /* InfoPlist.strings in Resources */ = {isa = PBXBuildFile; fileRef = 6FE7312418319837006026C5 /* InfoPlist.strings */; };
 		6FE7312818319837006026C5 /* Overdue_Task_List_AssignmentTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7312718319837006026C5 /* Overdue_Task_List_AssignmentTests.m */; };
 		6FE731331831A4BB006026C5 /* DDDTaskDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */; };
-		6FE731391831A4FA006026C5 /* DDDEditTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */; };
 		6FE7313C1831D911006026C5 /* DDDTask.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7313B1831D911006026C5 /* DDDTask.m */; };
 		6FE7314218328545006026C5 /* DDDAddTaskViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 6FE7314118328545006026C5 /* DDDAddTaskViewController.m */; };
 /* End PBXBuildFile section */
@@ -38,6 +38,8 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		6FD5DC9B1845B8CC0003058B /* DDDEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDEditTaskViewController.h; sourceTree = "<group>"; };
+		6FD5DC9C1845B8CC0003058B /* DDDEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDEditTaskViewController.m; sourceTree = "<group>"; };
 		6FE730F918319837006026C5 /* Overdue Task List Assignment.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Overdue Task List Assignment.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		6FE730FC18319837006026C5 /* Foundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Foundation.framework; path = System/Library/Frameworks/Foundation.framework; sourceTree = SDKROOT; };
 		6FE730FE18319837006026C5 /* CoreGraphics.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreGraphics.framework; path = System/Library/Frameworks/CoreGraphics.framework; sourceTree = SDKROOT; };
@@ -59,8 +61,6 @@
 		6FE7312718319837006026C5 /* Overdue_Task_List_AssignmentTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Overdue_Task_List_AssignmentTests.m; sourceTree = "<group>"; };
 		6FE731311831A4BB006026C5 /* DDDTaskDetailViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDTaskDetailViewController.h; sourceTree = "<group>"; };
 		6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDTaskDetailViewController.m; sourceTree = "<group>"; };
-		6FE731371831A4FA006026C5 /* DDDEditTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDEditTaskViewController.h; sourceTree = "<group>"; };
-		6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDEditTaskViewController.m; sourceTree = "<group>"; };
 		6FE7313A1831D911006026C5 /* DDDTask.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDTask.h; sourceTree = "<group>"; };
 		6FE7313B1831D911006026C5 /* DDDTask.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DDDTask.m; sourceTree = "<group>"; };
 		6FE7314018328545006026C5 /* DDDAddTaskViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DDDAddTaskViewController.h; sourceTree = "<group>"; };
@@ -133,8 +133,8 @@
 				6FE7314118328545006026C5 /* DDDAddTaskViewController.m */,
 				6FE731311831A4BB006026C5 /* DDDTaskDetailViewController.h */,
 				6FE731321831A4BB006026C5 /* DDDTaskDetailViewController.m */,
-				6FE731371831A4FA006026C5 /* DDDEditTaskViewController.h */,
-				6FE731381831A4FA006026C5 /* DDDEditTaskViewController.m */,
+				6FD5DC9B1845B8CC0003058B /* DDDEditTaskViewController.h */,
+				6FD5DC9C1845B8CC0003058B /* DDDEditTaskViewController.m */,
 				6FE7313D1831D91B006026C5 /* Model */,
 				6FE7311418319837006026C5 /* Images.xcassets */,
 				6FE7310318319837006026C5 /* Supporting Files */,
@@ -282,9 +282,9 @@
 				6FE731331831A4BB006026C5 /* DDDTaskDetailViewController.m in Sources */,
 				6FE7311318319837006026C5 /* DDDViewController.m in Sources */,
 				6FE7313C1831D911006026C5 /* DDDTask.m in Sources */,
+				6FD5DC9D1845B8CC0003058B /* DDDEditTaskViewController.m in Sources */,
 				6FE7310D18319837006026C5 /* DDDAppDelegate.m in Sources */,
 				6FE7314218328545006026C5 /* DDDAddTaskViewController.m in Sources */,
-				6FE731391831A4FA006026C5 /* DDDEditTaskViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -493,6 +493,7 @@
 				6FE7312D18319837006026C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		6FE7312E18319837006026C5 /* Build configuration list for PBXNativeTarget "Overdue Task List AssignmentTests" */ = {
 			isa = XCConfigurationList;
@@ -501,6 +502,7 @@
 				6FE7313018319837006026C5 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

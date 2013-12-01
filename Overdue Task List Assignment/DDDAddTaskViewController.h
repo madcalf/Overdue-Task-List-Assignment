@@ -7,17 +7,15 @@
 //
 
 #import <UIKit/UIKit.h>
-//#import "DDDTask.h"
 
 @protocol DDDAddTaskViewControllerDelegate <NSObject>
-
 @required
 -(void)didCancel;
 -(void)didAddTask:(DDDTask *)aTask;
-
 @end
 
-@interface DDDAddTaskViewController : UIViewController<UITextViewDelegate>
+
+@interface DDDAddTaskViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) id<DDDAddTaskViewControllerDelegate> delegate;
 @property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;

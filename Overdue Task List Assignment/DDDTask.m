@@ -12,43 +12,39 @@
 
 // default init with no args
 -(id)init {
-   return [self initWithTaskName:@"Default task" detail:@"" dueDate:[NSDate date]];
+    return [self initWithData: @{TASK_NAME:@"New Task", TASK_DETAIL:@"", TASK_DUE_DATE: [NSDate date]}];
 }
 
-// creates new task, assigning a unique ID
-- (id)initWithTaskName:(NSString *)aTaskName detail:(NSString *)aDetail dueDate:(NSDate *)aDate {
-    // create a unique id using the date in seconds
-    // Note NSTimeInterval is really double, so don't use a pointer
-    NSTimeInterval dateSeconds = [[NSDate date] timeIntervalSince1970];
-//    NSString *taskID = [NSString stringWithFormat:@"%i", (int)round(dateSeconds)];
-    NSNumber *taskID = [NSNumber numberWithDouble:dateSeconds];
-    return [self initWithID:taskID taskName:aTaskName detail:aDetail dueDate:aDate];
-}
-
-// Main initializer. Creates a new task object using the specified ID
--(id)initWithID:(NSNumber *)aID taskName:(NSString *)aName detail:(NSString *)aDetail dueDate:(NSDate *)aDate {
+-(id)initWithData:(NSDictionary *)aDict {
     self = [super init];
     if (self) {
-        // can't use the taskID getter since the property is read only, so use the instance var here
-        _taskID = aID;
-        _taskName = aName;
-        _detail = aDetail;
-        _dueDate = aDate;
-        
-        // not sure why an instance var for the BOOL doesn't autofill here as the others do...
-        self.completed = NO;
+        _taskName = aDict[TASK_NAME];
+        _detail = aDict[TASK_DETAIL];
+        _dueDate = aDict[TASK_DUE_DATE];
+//        _completed = [aDict[TASK_COMPLETED] boolValue];
+//        if (_completed == nil) _completed = NO;
+        if (aDict[TASK_COMPLETED] == nil) {
+            _completed = NO;
+        } else {
+            _completed = [aDict[TASK_COMPLETED] boolValue];
+        }
     }
     return self;
 }
 
-
 -(BOOL)isOverdue {
     // compare due date to today's date and return true if this was due in the past
-    return NO;
+    NSTimeInterval timeTilDueDate = [self.dueDate timeIntervalSinceNow];
+    NSLog(@"[DDDTask isOverdue] timeIntervalSinceNow: %f", timeTilDueDate);
+    return timeTilDueDate <= 0;
+}
+
+-(void)toggleCompleted {
+    self.completed = !self.completed;
 }
 
 -(NSString *)description {
-    return [NSString stringWithFormat:@"<DDDTask - taskID: %@  taskName: %@  dueDate: %@>", self.taskID, self.taskName, self.dueDate ];
+    return [NSString stringWithFormat:@"<DDDTask - taskName: %@  dueDate: %@  completed: %d>", self.taskName, self.dueDate, self.completed ];
 }
 
 @end

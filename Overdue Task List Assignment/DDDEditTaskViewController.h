@@ -7,11 +7,20 @@
 //
 
 #import <UIKit/UIKit.h>
+@protocol DDDEditTaskViewControllerDelegate <NSObject>
+@required
+//-(void)didCancel;
+-(void)didEditTask:(DDDTask *)aTask;
+@end
 
-@interface DDDEditTaskViewController : UIViewController
-@property (strong, nonatomic) IBOutlet UITextField *taskTextField;
-@property (strong, nonatomic) IBOutlet UITextView *detailTextField;
+@interface DDDEditTaskViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate>
+
+@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
+@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) DDDTask *task;
+@property (weak, nonatomic) id delegate;
 
 - (IBAction)saveBarButtonItemPressed:(UIBarButtonItem *)sender;
+
 @end
