@@ -15,12 +15,20 @@
 
 @interface DDDEditTaskViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate>
 
-@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
-@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
-@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
 @property (strong, nonatomic) DDDTask *task;
 @property (weak, nonatomic) id delegate;
 
+#pragma mark - outlets
+
+@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
+@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UITextField *dateTextField;
+
+#pragma mark - actions
+
 - (IBAction)saveBarButtonItemPressed:(UIBarButtonItem *)sender;
+- (IBAction)dateTextFieldPressed:(UITextField *)sender;
+- (IBAction)datePickerValueChanged:(UIDatePicker *)sender;
 
 @end

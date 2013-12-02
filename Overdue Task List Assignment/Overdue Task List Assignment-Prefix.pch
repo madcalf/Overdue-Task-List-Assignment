@@ -25,3 +25,4 @@
 #define TASK_DETAIL @"detail"
 #define TASK_DUE_DATE @"dueDate"
 #define TASK_COMPLETED @"completed"
+#define DETAIL_TEXTFIELD_PLACEHOLDER_TEXT @"Details"

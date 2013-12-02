@@ -246,23 +246,53 @@
 -(void)displayTask:(DDDTask *)aTask inTableCell:(UITableViewCell *)aCell {
     // populate the TableViewCell with task data
     aCell.textLabel.text = aTask.taskName;
+    
     // create the formatted date. Try a date with day and month names and times.
-    NSString *dateComponents = @"EEEMMMddyyyyhhmm";
-    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:dateComponents options:0 locale:[NSLocale currentLocale]];
+    aCell.detailTextLabel.text = [self formatDate:aTask.dueDate withComponentString:@"EEEMMMdyyyyhhmm"];
+    
+    // Color the text instead. Not so crazy about the background colors.
+    // Try dimmed strike thru text like omnifocus does
+    if (aTask.completed) {
+        aCell.textLabel.textColor = [UIColor lightGrayColor];
+        NSAttributedString *labelString = [self getStrikeThruString:aTask.taskName];
+        aCell.textLabel.attributedText = labelString;
+    } else {
+        if ([aTask isOverdue]) {
+            aCell.textLabel.textColor = [UIColor redColor];
+        } else {
+            aCell.textLabel.textColor = [UIColor blackColor];
+        }
+    }
+    
+    // color the background based on task properties
+//    if (aTask.completed) {
+//        aCell.backgroundColor = [UIColor greenColor];
+//    } else {
+//        if ([aTask isOverdue]) {
+//            aCell.backgroundColor = [UIColor redColor];
+//        } else {
+//            aCell.backgroundColor = [UIColor yellowColor];
+//        }
+//    }
+    
+}
+
+// this creates a date with the specified date components that still conforms to the user's locale.
+-(NSString *)formatDate:(NSDate *)aDate withComponentString:(NSString *)aDateComponents {
+
+    // note: options is always 0, as there are no options yet according to the docs.
+    NSString *formatString = [NSDateFormatter dateFormatFromTemplate:aDateComponents options:0 locale:[NSLocale currentLocale]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc]init];
     [formatter setDateFormat:formatString];
     // create a formatted string of our date text using this formatter
-    NSString *dateString = [formatter stringFromDate:aTask.dueDate];
-    aCell.detailTextLabel.text = dateString;
-    // color the background based on task properties
-    if (aTask.completed) {
-        aCell.backgroundColor = [UIColor greenColor];
-    } else {
-        if ([aTask isOverdue]) {
-            aCell.backgroundColor = [UIColor redColor];
-        } else {
-            aCell.backgroundColor = [UIColor yellowColor];
-        }
-    }
+    NSString *dateString = [formatter stringFromDate:aDate];
+    return dateString;
+}
+
+// returns attributed string with strikethru applied. Found examples on how to do strikethru on SO.
+-(NSAttributedString *)getStrikeThruString:(NSString *)aString {
+    NSDictionary *attributes = @{NSStrikethroughStyleAttributeName: [NSNumber numberWithInt:NSUnderlineStyleSingle]};
+    NSAttributedString *attributedString = [[NSAttributedString alloc]initWithString:aString attributes:attributes];
+    return attributedString;
 }
 @end

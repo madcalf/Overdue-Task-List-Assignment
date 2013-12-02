@@ -18,10 +18,18 @@
 @interface DDDAddTaskViewController : UIViewController<UITextViewDelegate, UITextFieldDelegate>
 
 @property (weak, nonatomic) id<DDDAddTaskViewControllerDelegate> delegate;
+
+#pragma mark - outlets
+
 @property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
 @property (strong, nonatomic) IBOutlet UITextView *detailTextView;
 @property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UITextField *dateTextField;
 
+#pragma mark - actions
+
+- (IBAction)dateTextFieldPressed:(UITextField *)sender;
+- (IBAction)datePickerValueChanged:(UIDatePicker *)sender;
 // note these are buttons, not BarButtonItems
 - (IBAction)saveButtonPressed:(UIButton *)sender;
 - (IBAction)cancelButtonPressed:(UIButton *)sender;

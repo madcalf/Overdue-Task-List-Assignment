@@ -13,14 +13,16 @@
 -(void)didEditTask:(DDDTask *)aTask;
 @end
 
-@interface DDDTaskDetailViewController : UIViewController <DDDEditTaskViewControllerDelegate>
-@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
-@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
-@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
-@property (strong, nonatomic) IBOutlet UILabel *DateLabel;
+@interface DDDTaskDetailViewController : UIViewController <DDDEditTaskViewControllerDelegate, UITextFieldDelegate, UITextViewDelegate>
+
+#pragma mark - properties
 @property (strong, nonatomic) DDDTask * task;
 @property (weak, nonatomic) id delegate;
 
-// Not sure we need this unless we intend to trigger the segue manually
-//- (IBAction)editBarButtonItemPressed:(UIBarButtonItem *)sender;
+#pragma mark - outlets
+@property (strong, nonatomic) IBOutlet UITextField *taskNameTextField;
+@property (strong, nonatomic) IBOutlet UITextView *detailTextView;
+@property (strong, nonatomic) IBOutlet UIDatePicker *datePicker;
+@property (strong, nonatomic) IBOutlet UITextField *dateTextField;
+
 @end
